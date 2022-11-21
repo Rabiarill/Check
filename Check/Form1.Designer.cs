@@ -51,6 +51,8 @@
             this.totalPriceTextBox = new System.Windows.Forms.TextBox();
             this.totalDiscountTextBox = new System.Windows.Forms.TextBox();
             this.totalCashTextBox = new System.Windows.Forms.TextBox();
+            this.totalBonusTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +88,7 @@
             // 
             // informationTextBox
             // 
-            this.informationTextBox.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.informationTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.informationTextBox.Location = new System.Drawing.Point(369, 40);
             this.informationTextBox.Multiline = true;
             this.informationTextBox.Name = "informationTextBox";
@@ -103,6 +105,7 @@
             this.ClearButton.TabIndex = 4;
             this.ClearButton.Text = "Очистить корзину";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // ExitButton
             // 
@@ -113,6 +116,7 @@
             this.ExitButton.TabIndex = 5;
             this.ExitButton.Text = "Выход";
             this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // label1
             // 
@@ -196,7 +200,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(31, 364);
+            this.label8.Location = new System.Drawing.Point(31, 350);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 20);
             this.label8.TabIndex = 13;
@@ -207,7 +211,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(31, 403);
+            this.label9.Location = new System.Drawing.Point(32, 389);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 20);
             this.label9.TabIndex = 14;
@@ -218,7 +222,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(32, 439);
+            this.label10.Location = new System.Drawing.Point(32, 425);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 20);
             this.label10.TabIndex = 15;
@@ -238,6 +242,7 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
             this.priceTextBox.TabIndex = 17;
+            this.priceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTextBox_KeyPress);
             // 
             // countTextBox
             // 
@@ -245,6 +250,7 @@
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(45, 20);
             this.countTextBox.TabIndex = 18;
+            this.countTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.countTextBox_KeyPress);
             // 
             // discountTextBox
             // 
@@ -252,27 +258,47 @@
             this.discountTextBox.Name = "discountTextBox";
             this.discountTextBox.Size = new System.Drawing.Size(45, 20);
             this.discountTextBox.TabIndex = 19;
+            this.discountTextBox.Text = "10";
+            this.discountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.discountTextBox_KeyPress);
             // 
             // totalPriceTextBox
             // 
-            this.totalPriceTextBox.Location = new System.Drawing.Point(155, 364);
+            this.totalPriceTextBox.Location = new System.Drawing.Point(155, 350);
             this.totalPriceTextBox.Name = "totalPriceTextBox";
             this.totalPriceTextBox.Size = new System.Drawing.Size(117, 20);
             this.totalPriceTextBox.TabIndex = 20;
             // 
             // totalDiscountTextBox
             // 
-            this.totalDiscountTextBox.Location = new System.Drawing.Point(155, 405);
+            this.totalDiscountTextBox.Location = new System.Drawing.Point(155, 391);
             this.totalDiscountTextBox.Name = "totalDiscountTextBox";
             this.totalDiscountTextBox.Size = new System.Drawing.Size(117, 20);
             this.totalDiscountTextBox.TabIndex = 21;
             // 
             // totalCashTextBox
             // 
-            this.totalCashTextBox.Location = new System.Drawing.Point(155, 439);
+            this.totalCashTextBox.Location = new System.Drawing.Point(155, 425);
             this.totalCashTextBox.Name = "totalCashTextBox";
             this.totalCashTextBox.Size = new System.Drawing.Size(117, 20);
             this.totalCashTextBox.TabIndex = 22;
+            // 
+            // totalBonusTextBox
+            // 
+            this.totalBonusTextBox.Location = new System.Drawing.Point(155, 459);
+            this.totalBonusTextBox.Name = "totalBonusTextBox";
+            this.totalBonusTextBox.Size = new System.Drawing.Size(117, 20);
+            this.totalBonusTextBox.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(32, 459);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 20);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Бонус";
             // 
             // Form1
             // 
@@ -280,6 +306,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(881, 537);
+            this.Controls.Add(this.totalBonusTextBox);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.totalCashTextBox);
             this.Controls.Add(this.totalDiscountTextBox);
             this.Controls.Add(this.totalPriceTextBox);
@@ -337,6 +365,8 @@
         private System.Windows.Forms.TextBox totalPriceTextBox;
         private System.Windows.Forms.TextBox totalDiscountTextBox;
         private System.Windows.Forms.TextBox totalCashTextBox;
+        private System.Windows.Forms.TextBox totalBonusTextBox;
+        private System.Windows.Forms.Label label11;
     }
 }
 
